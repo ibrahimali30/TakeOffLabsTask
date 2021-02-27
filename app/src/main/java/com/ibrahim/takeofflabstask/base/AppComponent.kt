@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.ibrahim.takeofflabstask.MainActivity
-import com.ibrahim.takeofflabstask.feature.presentation.di.VODGenresModule
+import com.ibrahim.takeofflabstask.feature.presentation.di.ProfilesModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Lazy
@@ -37,7 +37,7 @@ interface AppComponent {
 
 @Module
 abstract class ActivityBuilder {
-    @ContributesAndroidInjector( modules = [VODGenresModule::class])
+    @ContributesAndroidInjector( modules = [ProfilesModule::class])
     abstract fun bindMainActivity(): MainActivity
 }
 

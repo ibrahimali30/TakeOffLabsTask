@@ -1,13 +1,13 @@
 package com.ibrahim.takeofflabstask.feature.data.source.remote
 
 import io.reactivex.Single
-import com.ibrahim.takeofflabstask.feature.data.model.GenresResponse
-import com.ibrahim.takeofflabstask.feature.data.source.remote.VODGenresApiService
-import com.ibrahim.takeofflabstask.feature.data.source.remote.VODGenresRemoteDataSource
+import com.ibrahim.takeofflabstask.feature.data.model.ProfilesResponse
+import com.ibrahim.takeofflabstask.feature.data.source.remote.ProfilesApiService
+import com.ibrahim.takeofflabstask.feature.data.source.remote.ProfilesRemoteDataSource
 import javax.inject.Inject
 
-class VODGenresRemoteDataSourceImpl @Inject constructor(private val vodGenresApiService: VODGenresApiService)
-    : VODGenresRemoteDataSource {
-    override fun getVODGenres(language: String):
-            Single<GenresResponse> = vodGenresApiService.getVODGenres()
+class ProfilesRemoteDataSourceImpl @Inject constructor(private val vodProfilesApiService: ProfilesApiService)
+    : ProfilesRemoteDataSource {
+    override fun getProfiles(language: String):
+            Single<ProfilesResponse> = vodProfilesApiService.getProfiles()
 }

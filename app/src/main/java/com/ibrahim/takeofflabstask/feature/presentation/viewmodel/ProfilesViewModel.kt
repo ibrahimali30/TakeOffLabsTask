@@ -5,24 +5,24 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import com.ibrahim.takeofflabstask.feature.domain.interactor.GetVODGenresUseCase
+import com.ibrahim.takeofflabstask.feature.domain.interactor.GetProfilesUseCase
 import javax.inject.Inject
 
-class VODGenrsViewModel @Inject constructor(
-        private val refreshVODGenresUseCase: GetVODGenresUseCase
+class ProfilesViewModel @Inject constructor(
+        private val refreshProfilesUseCase: GetProfilesUseCase
 )
     : ViewModel() {
 
-    val vodGenresObservableResource = MutableLiveData<String>()
+    val vodProfilesObservableResource = MutableLiveData<String>()
 
-    fun getVODGenres() {
-        val disposable = refreshVODGenresUseCase.execute()
+    fun getProfiles() {
+        val disposable = refreshProfilesUseCase.execute()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    Log.d("TAG", "getVODGenres: $it")
+                    Log.d("TAG", "getProfiles: $it")
                 }, {
-                    Log.d("TAG", "getVODGenres: ${it.printStackTrace()}")
+                    Log.d("TAG", "getProfiles: ${it.printStackTrace()}")
                 })
     }
 

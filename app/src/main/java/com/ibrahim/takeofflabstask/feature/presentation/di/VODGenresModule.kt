@@ -3,11 +3,11 @@ package com.ibrahim.takeofflabstask.feature.presentation.di
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
-import com.ibrahim.takeofflabstask.feature.data.repository.VODGenresRepositoryImpl
-import com.ibrahim.takeofflabstask.feature.data.source.remote.VODGenresRemoteDataSource
-import com.ibrahim.takeofflabstask.feature.data.source.remote.VODGenresRemoteDataSourceImpl
-import com.ibrahim.takeofflabstask.feature.domain.repsitory.VODGenresRepository
-import com.ibrahim.takeofflabstask.feature.data.source.remote.VODGenresApiService
+import com.ibrahim.takeofflabstask.feature.data.repository.ProfilesRepositoryImpl
+import com.ibrahim.takeofflabstask.feature.data.source.remote.ProfilesRemoteDataSource
+import com.ibrahim.takeofflabstask.feature.data.source.remote.ProfilesRemoteDataSourceImpl
+import com.ibrahim.takeofflabstask.feature.domain.repsitory.ProfilesRepository
+import com.ibrahim.takeofflabstask.feature.data.source.remote.ProfilesApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -15,16 +15,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 @Module
-class VODGenresModule {
+class ProfilesModule {
 
     @Provides
-    fun providesVODGenresRemoteDataSource(vodGenresRemoteDataSourceImpl: VODGenresRemoteDataSourceImpl): VODGenresRemoteDataSource = vodGenresRemoteDataSourceImpl
+    fun providesProfilesRemoteDataSource(vodProfilesRemoteDataSourceImpl: ProfilesRemoteDataSourceImpl): ProfilesRemoteDataSource = vodProfilesRemoteDataSourceImpl
 
     @Provides
-    fun providesVODGenresRepository(vodGenresRepositoryImpl: VODGenresRepositoryImpl): VODGenresRepository = vodGenresRepositoryImpl
+    fun providesProfilesRepository(vodProfilesRepositoryImpl: ProfilesRepositoryImpl): ProfilesRepository = vodProfilesRepositoryImpl
 
     @Provides
-    fun providesVODGenresApiService(): VODGenresApiService {
+    fun providesProfilesApiService(): ProfilesApiService {
         val okHttpClient = getCommonOkHttpClient()
 
         val builder = Retrofit.Builder()
@@ -40,7 +40,7 @@ class VODGenresModule {
         builder.client(okHttpClient)
 
         val retrofit = builder.build()
-        return retrofit.create(VODGenresApiService::class.java)
+        return retrofit.create(ProfilesApiService::class.java)
     }
 
     private fun getCommonOkHttpClient(): OkHttpClient {
