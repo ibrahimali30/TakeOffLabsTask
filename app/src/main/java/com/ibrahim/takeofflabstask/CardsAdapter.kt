@@ -1,6 +1,5 @@
 package com.ibrahim.takeofflabstask
 
-import android.R
 import android.app.Activity
 import android.content.res.Resources
 import android.graphics.Bitmap
@@ -9,7 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import com.ibrahim.takeofflabstask.feature.data.model.Profile
+import com.squareup.picasso.Picasso
 
 
 class CardsAdapter(activity: Activity, data: List<Profile>) :
@@ -47,7 +49,7 @@ class CardsAdapter(activity: Activity, data: List<Profile>) :
         }
 
         //setting data to views
-
+        holder.bind(data[position])
 
         return convertView
     }
@@ -58,14 +60,24 @@ class CardsAdapter(activity: Activity, data: List<Profile>) :
     }
 
     private inner class ViewHolder(view: View) {
-//        val avatar: ImageView
-//        val name: TextView
-//        val location: TextView
+        fun bind(profile: Profile) {
+            Picasso.get()
+                .load(profile.photos[0])
+                .fit().centerCrop()
+                .into(avatar)
+
+            name.text = "${ profile.first_name}, ${ profile.last_name}"
+            location.text = "${ profile.country}, ${ profile.city}"
+
+        }
+        val avatar: ImageView
+        val name: TextView
+        val location: TextView
 
         init {
-//            avatar = view.findViewById(R.id.avatar) as ImageView
-//            name = view.findViewById(R.id.name)
-//            location = view.findViewById(R.id.location)
+            avatar = view.findViewById(com.ibrahim.takeofflabstask.R.id.avatar) as ImageView
+            name = view.findViewById(com.ibrahim.takeofflabstask.R.id.tvName)
+            location = view.findViewById(com.ibrahim.takeofflabstask.R.id.tvCity)
         }
     }
 
