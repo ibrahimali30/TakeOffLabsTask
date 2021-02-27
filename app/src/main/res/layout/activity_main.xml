@@ -61,6 +61,10 @@
     </LinearLayout>
 
     <link.fls.swipestack.SwipeStack
+        app:stack_spacing="200dp"
+        app:stack_size="3"
+        app:stack_rotation="0"
+        app:scale_factor=".9"
         android:clipChildren="false"
         android:id="@+id/cardStack"
         android:layout_weight="1"
