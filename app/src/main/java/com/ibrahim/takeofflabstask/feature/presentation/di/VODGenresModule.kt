@@ -33,7 +33,7 @@ class VODGenresModule {
             .setLenient()
             .create()
 
-        builder.baseUrl("https://www.google.com.eg/")
+        builder.baseUrl("https://www.plugco.in/public/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 

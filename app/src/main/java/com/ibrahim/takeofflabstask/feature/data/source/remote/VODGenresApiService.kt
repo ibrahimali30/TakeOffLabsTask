@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface VODGenresApiService {
 
-    @GET("mobile/vod/genres")
+    @GET("take_home_sample_profiles")
     fun getVODGenres(): Single<GenresResponse>
 }
