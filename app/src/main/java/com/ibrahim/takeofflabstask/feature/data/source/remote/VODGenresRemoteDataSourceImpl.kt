@@ -6,8 +6,8 @@ import com.ibrahim.takeofflabstask.feature.data.source.remote.ProfilesApiService
 import com.ibrahim.takeofflabstask.feature.data.source.remote.ProfilesRemoteDataSource
 import javax.inject.Inject
 
-class ProfilesRemoteDataSourceImpl @Inject constructor(private val vodProfilesApiService: ProfilesApiService)
+class ProfilesRemoteDataSourceImpl @Inject constructor(private val profilesApiService: ProfilesApiService)
     : ProfilesRemoteDataSource {
     override fun getProfiles(language: String):
-            Single<ProfilesResponse> = vodProfilesApiService.getProfiles()
+            Single<ProfilesResponse> = profilesApiService.getProfiles()
 }

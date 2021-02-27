@@ -18,10 +18,10 @@ import java.util.concurrent.TimeUnit
 class ProfilesModule {
 
     @Provides
-    fun providesProfilesRemoteDataSource(vodProfilesRemoteDataSourceImpl: ProfilesRemoteDataSourceImpl): ProfilesRemoteDataSource = vodProfilesRemoteDataSourceImpl
+    fun providesProfilesRemoteDataSource(profilesRemoteDataSourceImpl: ProfilesRemoteDataSourceImpl): ProfilesRemoteDataSource = profilesRemoteDataSourceImpl
 
     @Provides
-    fun providesProfilesRepository(vodProfilesRepositoryImpl: ProfilesRepositoryImpl): ProfilesRepository = vodProfilesRepositoryImpl
+    fun providesProfilesRepository(profilesRepositoryImpl: ProfilesRepositoryImpl): ProfilesRepository = profilesRepositoryImpl
 
     @Provides
     fun providesProfilesApiService(): ProfilesApiService {

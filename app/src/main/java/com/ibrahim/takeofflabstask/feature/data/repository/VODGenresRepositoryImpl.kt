@@ -8,11 +8,11 @@ import javax.inject.Inject
 
 
 class ProfilesRepositoryImpl @Inject constructor(
-    private val vodProfilesRemoteDataSource: ProfilesRemoteDataSource
+    private val profilesRemoteDataSource: ProfilesRemoteDataSource
 ) : ProfilesRepository {
 
     override fun getProfiles(): Single<ProfilesResponse> {
-        return vodProfilesRemoteDataSource.getProfiles()
+        return profilesRemoteDataSource.getProfiles()
     }
 
 
